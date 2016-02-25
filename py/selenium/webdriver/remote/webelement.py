@@ -86,14 +86,13 @@ class WebElement(FinderBase):
 
         """
         resp = self._execute(Command.GET_ELEMENT_ATTRIBUTE, {'name': name})
-        attributeValue = ''
         if resp['value'] is None:
-            attributeValue = None
+            attribute_value = None
         else:
-            attributeValue = resp['value']
-            if name != 'value' and attributeValue.lower() in ('true', 'false'):
-                attributeValue = attributeValue.lower()
-        return attributeValue
+            attribute_value = resp['value']
+            if name != 'value' and attribute_value.lower() in ('true', 'false'):
+                attribute_value = attribute_value.lower()
+        return attribute_value
 
     def is_selected(self):
         """Returns whether the element is selected.
